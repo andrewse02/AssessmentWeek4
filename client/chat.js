@@ -10,7 +10,7 @@ const registerUsername = document.getElementById("register-username");
 const registerPassword = document.getElementById("register-password");
 const registerButton = document.getElementById("register-button");
 
-const messages = [];
+let messages = [];
 
 const messagesBox = document.createElement("div");
 messagesBox.id = "messages-box";
@@ -135,6 +135,12 @@ changeButton.addEventListener("click", (event) => {
 });
 
 const populateMessages = (serverMessages) => {
+    while(messagesList.firstChild) {
+        messagesList.removeChild(messagesList.firstChild);
+    }
+
+    messages = [];
+
     for (let i = 0; i < serverMessages.length; i++) {
         const { id, username, messageID, message, date } = serverMessages[i];
 
@@ -172,9 +178,12 @@ const deleteMessage = (messageID, userID) => {
         .then((res) => {
             messages.splice(res.data.index, 1);
             console.log(res.data.serverMessages);
+            
+            populateMessages(res.data.serverMessages);
         })
         .catch((error) => {
             console.log(error);
             alert(error.response.data);
         });
+
 }
