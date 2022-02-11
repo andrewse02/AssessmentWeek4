@@ -1,3 +1,7 @@
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
 a {
     color: black;
     text-decoration: none;
@@ -19,6 +23,36 @@ a:hover {
     color: gray;
 }
 
+section {
+    margin: 10px 0px;
+}
+
+input {
+    height: 18px;
+    border: 1px solid black;
+    border-radius: 6px;
+    margin: 0px 2.5px;
+}
+
+button {
+    height: 25px;
+    min-width: 120px;
+    text-align: center;
+    line-height: 10px;
+    padding: 8px 15px 8px 15px;
+    border-radius: 6px;
+    border: 1px solid black;
+    box-shadow: 1px 1px 2px;
+}
+
+button.primary {
+    background-color: rgb(0, 218, 0);
+}
+
+button.danger {
+    background-color: red;
+}
+
 button:hover {
     cursor: pointer;
 }
@@ -28,10 +62,11 @@ span > h2:hover {
 }
 
 #messages-box {
-    min-height: 66px;
+    height: 495px;
     width: 700px;
     border: 0.5px solid black;
     margin: 5px 0;
+    overflow: scroll;
 }
 
 #messages {
@@ -51,6 +86,12 @@ span > h2:hover {
 .message {
     display: flex;
     justify-content: space-between;
+}
+
+.message-content {
+    max-width: 550px;
+    margin-right: 10px;
+    word-wrap: break-word;
 }
 
 .date-delete {

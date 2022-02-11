@@ -27,6 +27,7 @@ messageInput.placeholder = "Message";
 messageInput.autocomplete = "off";
 const sendButton = document.createElement("button");
 sendButton.id = "send-button";
+sendButton.className = "primary";
 sendButton.textContent = "Send";
 messagesCreator.appendChild(messageInput);
 messagesCreator.appendChild(sendButton);
@@ -43,6 +44,36 @@ changeButton.id = "change-button";
 changeButton.textContent = "Change Username";
 changeSection.appendChild(changeInput);
 changeSection.appendChild(changeButton);
+const logoutButton = document.createElement("button");
+logoutButton.id = "logout-button";
+logoutButton.className = "danger";
+logoutButton.textContent = "Logout";
+
+
+const checkLoggedIn = () => {
+    if(sessionStorage.getItem("id") && sessionStorage.getItem("username")) {
+        htmlBody.removeChild(loginSection);
+        if (htmlBody.contains(registerSection)) {
+            htmlBody.removeChild(registerSection);
+        }
+
+        htmlBody.appendChild(messagesBox);
+        htmlBody.appendChild(messagesCreator);
+
+        axios
+            .get("/messages")
+            .then((getRes) => {
+                populateMessages(getRes.data);
+            })
+            .catch((error) => {
+                console.log(error);
+                alert(error.response.data);
+            });
+
+        htmlBody.appendChild(changeSection);
+        htmlBody.appendChild(logoutButton);
+    }
+}
 
 loginButton.addEventListener("click", (event) => {
     const body = {
@@ -79,6 +110,7 @@ loginButton.addEventListener("click", (event) => {
                 });
 
             htmlBody.appendChild(changeSection);
+            htmlBody.appendChild(logoutButton);
         })
         .catch((error) => {
             console.log(error);
@@ -150,6 +182,13 @@ changeButton.addEventListener("click", (event) => {
         });
 });
 
+logoutButton.addEventListener("click", (event) => {
+    sessionStorage.removeItem("id");
+    sessionStorage.removeItem("username");
+
+    location.reload();
+})
+
 const populateMessages = (serverMessages) => {
     while(messagesList.firstChild) {
         messagesList.removeChild(messagesList.firstChild);
@@ -165,7 +204,7 @@ const populateMessages = (serverMessages) => {
 
             const messageHTML = `
             <div class="message">
-                <p class="username">[${username}]: ${message}</p>
+                <p class="message-content">[${username}]: ${message}</p>
                 <div class="date-delete">
                     <p class="date">${new Date(date).toLocaleTimeString()}</p>
                     <p class="delete" onclick="deleteMessage(${messageID}, ${id})">Delete</p>
@@ -179,6 +218,7 @@ const populateMessages = (serverMessages) => {
             messagesList.appendChild(newMessage);
 
             messages.push(serverMessages[i]);
+            window.scrollTo(0, messagesBox.scrollHeight);
         }
     }
 };
@@ -209,5 +249,6 @@ const deleteMessage = (messageID, userID) => {
             console.log(error);
             alert(error.response.data);
         });
-
 }
+
+window.onload = checkLoggedIn;

@@ -70,6 +70,8 @@ app.post("/login", (req, res) => {
         }
 
         return res.status(400).send("Username does not exist!");
+    } else {
+        return res.status(400).send("You must input Username and Password!");
     }
 });
 
