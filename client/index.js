@@ -1,6 +1,6 @@
 document.getElementById("complimentButton").addEventListener("click", (event) => {
     axios
-        .get("http://localhost:4000/api/compliment/")
+        .get("/api/compliment/")
         .then((res) => {
             const data = res.data;
             alert(data);
@@ -9,7 +9,7 @@ document.getElementById("complimentButton").addEventListener("click", (event) =>
 
 document.getElementById("fortune-button").addEventListener("click", (event) => {
     axios
-        .get("http://localhost:4000/api/fortune")
+        .get("/api/fortune")
         .then((res) => {
             const data = res.data;
             alert(data);
@@ -17,5 +17,10 @@ document.getElementById("fortune-button").addEventListener("click", (event) => {
 });
 
 document.getElementById("chat-link").addEventListener("click", (event) => {
-    window.location.replace("http://localhost:4000/chat");
+    axios
+        .get("/chat")
+        .catch((error) => {
+            console.log(error);
+            alert(error.response.data);
+        })
 });
