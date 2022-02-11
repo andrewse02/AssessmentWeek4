@@ -8,6 +8,8 @@ app.use(cors());
 app.use(express.json()); // When we want to be able to accept JSON.
 app.use(express.static(path.join(__dirname, "/../client")));
 
+const port = process.env.PORT || 4000;
+
 const users = [];
 const messages = [];
 
@@ -158,4 +160,4 @@ app.delete("/messages", (req, res) => {
     }
 });
 
-app.listen(4000, () => console.log("Server running on 4000"));
+app.listen(port, () => console.log("Server running on 4000"));
