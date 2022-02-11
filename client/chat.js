@@ -68,7 +68,15 @@ loginButton.addEventListener("click", (event) => {
             htmlBody.appendChild(messagesBox);
             htmlBody.appendChild(messagesCreator);
 
-            populateMessages(res.data.messages);
+            axios
+                .get("/messages")
+                .then((getRes) => {
+                    populateMessages(getRes.data);
+                })
+                .catch((error) => {
+                    console.log(error);
+                    alert(error.response.data);
+                });
 
             htmlBody.appendChild(changeSection);
         })
@@ -109,7 +117,15 @@ sendButton.addEventListener("click", (event) => {
     axios
         .post("/messages", body)
         .then((res) => {
-            populateMessages(res.data);
+            axios
+                .get("/messages")
+                .then((getRes) =>{
+                    populateMessages(getRes.data);
+                })
+                .catch((error) => {
+                    console.log(error);
+                    alert(error.response.data);
+                });
         })
         .catch((error) => {
             console.log(error);
@@ -178,8 +194,16 @@ const deleteMessage = (messageID, userID) => {
         .then((res) => {
             messages.splice(res.data.index, 1);
             console.log(res.data.serverMessages);
-            
-            populateMessages(res.data.serverMessages);
+
+            axios
+                .get("/messages")
+                .then((getRes) => {
+                    populateMessages(getRes.data);
+                })
+                .catch((error) => {
+                    console.log(error);
+                    alert(error.response.data);
+                });
         })
         .catch((error) => {
             console.log(error);

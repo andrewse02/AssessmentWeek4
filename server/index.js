@@ -109,6 +109,10 @@ app.put("/users", (req, res) => {
     }
 });
 
+app.get("/messages", (req, res) => {
+    return res.status(200).send(messages);
+});
+
 app.post("/messages", (req, res) => {
     const { id, username, message } = req.body;
 
