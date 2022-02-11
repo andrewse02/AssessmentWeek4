@@ -160,4 +160,4 @@ app.delete("/messages", (req, res) => {
     }
 });
 
-app.listen(port, () => console.log("Server running on 4000"));
+app.listen(port, () => console.log(`Server running on ${port}`));
