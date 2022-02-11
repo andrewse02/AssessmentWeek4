@@ -13,6 +13,10 @@ const port = process.env.PORT || 4000;
 const users = [];
 const messages = [];
 
+app.get("*", (req, res) => {
+    res.redirect("/");
+});
+
 app.get("/api/compliment", (req, res) => {
     const compliments = [
         "Gee, you're a smart cookie!",
