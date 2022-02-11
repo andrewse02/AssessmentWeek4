@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+
+        <title>Chat App</title>
+    </head>
+    <body class="container">
+        <h1>Chat App</h1>
+
+        <section id="login-section">
+            <input
+                id="login-username"
+                type="text"
+                placeholder="Username"
+                autocomplete="off"
+            />
+            <input
+                id="login-password"
+                type="password"
+                placeholder="Password"
+                autocomplete="off"
+            />
+            <button id="login-button">Login</button>
+        </section>
+
+        <section id="register-section">
+            <input
+                id="register-username"
+                type="text"
+                placeholder="Username"
+                autocomplete="off"
+            />
+            <input
+                id="register-password"
+                type="password"
+                placeholder="Password"
+                autocomplete="off"
+            />
+            <button id="register-button">Register</button>
+        </section>
+
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="/chat.js"></script>
+    </body>
+</html>
