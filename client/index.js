@@ -15,12 +15,3 @@ document.getElementById("fortune-button").addEventListener("click", (event) => {
             alert(data);
         })
 });
-
-document.getElementById("chat-link").addEventListener("click", (event) => {
-    axios
-        .get("/chat")
-        .catch((error) => {
-            console.log(error);
-            alert(error.response.data);
-        })
-});

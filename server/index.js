@@ -13,8 +13,8 @@ const port = process.env.PORT || 4000;
 const users = [];
 const messages = [];
 
-app.get("*", (req, res) => {
-    res.redirect("/");
+app.get("/", (req, res) => {
+    res.sendFile(path.resolve("/client/index.html"));
 });
 
 app.get("/api/compliment", (req, res) => {
