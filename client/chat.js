@@ -13,11 +13,12 @@ const messagesBox = document.createElement("div");
 messagesBox.id = "messages-box";
 const messagesList = document.createElement("ul");
 messagesList.id = "messages";
+
 const typingText = document.createElement("p");
 typingText.id = "typing";
 messagesBox.appendChild(messagesList);
 
-const messagesCreator = document.createElement("form");
+const messagesCreator = document.createElement("form"); d92f06d3ff94ccf3222b24c5c8e2fe04b7f57e8a
 messagesCreator.id = "messages-creator";
 const messageInput = document.createElement("input");
 messageInput.type = "text";
