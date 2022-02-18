@@ -1,0 +1,122 @@
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:link {
+    color: black;
+}
+
+a:active {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: gray;
+}
+
+section {
+    margin: 10px 0px;
+}
+
+input {
+    height: 18px;
+    border: 1px solid black;
+    border-radius: 6px;
+    margin: 0px 2.5px;
+}
+
+button {
+    height: 25px;
+    min-width: 120px;
+    text-align: center;
+    line-height: 10px;
+    padding: 8px 15px 8px 15px;
+    border-radius: 6px;
+    border: 1px solid black;
+    box-shadow: 1px 1px 2px;
+}
+
+button.primary {
+    background-color: rgb(0, 218, 0);
+}
+
+button.danger {
+    background-color: red;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+span > h2:hover {
+    cursor: pointer;
+}
+
+#messages-box {
+    height: 495px;
+    width: 700px;
+    border: 0.5px solid black;
+    margin: 5px 0;
+    overflow: scroll;
+    position: relative;
+}
+
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#messages > li {
+    padding: 8px 16px;
+}
+
+#messages > li:nth-child(odd) {
+    background-color: #EFEFEF;
+}
+
+.message {
+    display: flex;
+    justify-content: space-between;
+}
+
+.message-content {
+    max-width: 550px;
+    margin-right: 10px;
+    word-wrap: break-word;
+}
+
+.date-delete {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.date {
+    margin: 0;
+}
+
+.delete {
+    font-size: 12px;
+    margin: 2px 0;
+    color: red;
+}
+
+.delete:hover {
+    cursor: pointer;
+}
+
+#typing {
+    margin: 14px;
+    margin-top: 5px;
+    font-size: 14px;
+}

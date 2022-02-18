@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+
+        <title>Chat App</title>
+    </head>
+    <body class="container">
+        <h1>Chat App</h1>
+
+        <form id="login-form">
+            <input
+                id="login-username"
+                type="text"
+                placeholder="Username"
+                autocomplete="off"
+            />
+            <input
+                id="login-password"
+                type="password"
+                placeholder="Password"
+                autocomplete="off"
+            />
+            <button id="login-button" class="primary">Login</button>
+        </form>
+
+        <form id="register-form">
+            <input
+                id="register-username"
+                type="text"
+                placeholder="Username"
+                autocomplete="off"
+            />
+            <input
+                id="register-password"
+                type="password"
+                placeholder="Password"
+                autocomplete="off"
+            />
+            <button id="register-button" class="primary">Register</button>
+        </form>
+
+        <script src="/scripts/axios.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/chat.js"></script>
+    </body>
+</html>
